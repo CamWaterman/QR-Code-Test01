@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+
 
 public class HomeScreen extends Activity {
 
@@ -19,17 +21,18 @@ public class HomeScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        final Activity test = new Activity();
 
         captureBtn = (Button) findViewById(R.id.captureBtn);
         captureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                getScanner();
             }
         });
 
         scoreView = (TextView) findViewById(R.id.scoreBody);
-        scoreView.setText(QR.score);
+        scoreView.setText(QR.scoreStr);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,5 +51,15 @@ public class HomeScreen extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void getScanner()
+    {
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+        integrator.setPrompt("Scan a barcode");
+        integrator.setResultDisplayDuration(0);
+        integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
+        integrator.initiateScan();
     }
 }

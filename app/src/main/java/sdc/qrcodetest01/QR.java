@@ -5,5 +5,5 @@ package sdc.qrcodetest01;
  */
 public class QR {
     static int score = 42;
-
+    static String scoreStr = Integer.toString(score);
 }
