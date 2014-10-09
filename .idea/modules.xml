@@ -3,10 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QR-Code-Test01.iml" filepath="$PROJECT_DIR$/QR-Code-Test01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QRCode.iml" filepath="$PROJECT_DIR$/QRCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/QRCodeTest01.iml" filepath="$PROJECT_DIR$/QRCodeTest01.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/integration/integration.iml" filepath="$PROJECT_DIR$/integration/integration.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxing-android/zxing-android.iml" filepath="$PROJECT_DIR$/zxing-android/zxing-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxing-android-complete/zxing-android-complete.iml" filepath="$PROJECT_DIR$/zxing-android-complete/zxing-android-complete.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxing-android-legacy/zxing-android-legacy.iml" filepath="$PROJECT_DIR$/zxing-android-legacy/zxing-android-legacy.iml" />
     </modules>
   </component>
