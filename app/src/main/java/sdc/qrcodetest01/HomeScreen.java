@@ -57,9 +57,8 @@ public class HomeScreen extends Activity {
     {
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Scan a barcode");
+        integrator.setPrompt("Scan Barcode");
         integrator.setResultDisplayDuration(0);
-        integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
         integrator.initiateScan();
     }
 }
