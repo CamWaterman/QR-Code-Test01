@@ -19,6 +19,7 @@ public class HomeScreen extends Activity {
 
     Button captureBtn;
     TextView scoreView;
+    QR lol = new QR();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class HomeScreen extends Activity {
         });
 
         scoreView = (TextView) findViewById(R.id.scoreBody);
-        scoreView.setText(QR.scoreStr);
+        scoreView.setText(lol.getScore());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

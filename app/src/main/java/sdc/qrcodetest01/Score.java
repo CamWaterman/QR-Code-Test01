@@ -4,6 +4,11 @@ public class Score {
 
     int score;
 
+    public Score()
+    {
+        this.score = 0;
+    }
+
     /**
      * Adds one to the current score
      */
