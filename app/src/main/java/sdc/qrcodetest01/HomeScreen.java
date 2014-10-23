@@ -36,7 +36,7 @@ public class HomeScreen extends Activity {
         });
 
         scoreView = (TextView) findViewById(R.id.scoreBody);
-        scoreView.setText(lol.getScore());
+        scoreView.setText(String.valueOf(lol.getScore()));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,14 +74,20 @@ public class HomeScreen extends Activity {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
 
-                if("1 point (TTU)".contentEquals(result.getContents()))
+                if("1 point (TTU)".contentEquals(result.getContents())) {
                     Toast.makeText(this, "You earned 1 point", Toast.LENGTH_LONG).show();
+                    lol.addOne();
+                }
 
-                if("5 points (TTU)".contentEquals(result.getContents()))
+                if("5 points (TTU)".contentEquals(result.getContents())){
                     Toast.makeText(this, "You earned 5 points", Toast.LENGTH_LONG).show();
+                    lol.addFive();
+                }
 
-                if("10 points (TTU)".contentEquals(result.getContents()))
+                if("10 points (TTU)".contentEquals(result.getContents())) {
                     Toast.makeText(this, "You earned 10 points", Toast.LENGTH_LONG).show();
+                    lol.addTen();
+                }
 
 
                 Log.d("Results", result.getContents());
@@ -92,5 +98,7 @@ public class HomeScreen extends Activity {
             // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
+
+        scoreView.setText(String.valueOf(lol.getScore()));
     }
 }

@@ -13,15 +13,18 @@ public class QR {
     }
     public void addOne()
     {
-
+        //check
+        x.scoreOne();
     }
     public void addFive()
     {
-
+        //check
+        x.scoreFive();
     }
     public void addTen()
     {
-
+        //check
+        x.scoreTen();
     }
     public int getScore()
     {
