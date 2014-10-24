@@ -62,6 +62,7 @@ public class HomeScreen extends Activity {
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
         integrator.setPrompt("Scan Barcode");
+        integrator.setWide();
         integrator.setResultDisplayDuration(500);
         integrator.initiateScan();
     }
@@ -73,26 +74,49 @@ public class HomeScreen extends Activity {
             if(result.getContents() == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-
-                if("1 point (TTU)".contentEquals(result.getContents())) {
-                    Toast.makeText(this, "You earned 1 point", Toast.LENGTH_LONG).show();
-                    lol.addOne();
+                char[] id = result.getContents().toCharArray();
+                int numId = (10 * id[3]) + id[4];
+                if(numId < 10)
+                {
+                    if(lol.isScanned[numId] == false)
+                    {
+                        Toast.makeText(this, "You earned 1 point!", Toast.LENGTH_LONG).show();
+                        lol.addOne();
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "You have already scanned this QR code!", Toast.LENGTH_LONG).show();
+                    }
                 }
-
-                if("5 points (TTU)".contentEquals(result.getContents())){
-                    Toast.makeText(this, "You earned 5 points", Toast.LENGTH_LONG).show();
-                    lol.addFive();
+                else if(numId >= 10 && numId < 20)
+                {
+                    if(lol.isScanned[numId] == false)
+                    {
+                        Toast.makeText(this, "You earned 5 points!", Toast.LENGTH_LONG).show();
+                        lol.addFive();
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "You have already scanned this QR code!", Toast.LENGTH_LONG).show();
+                    }
                 }
-
-                if("10 points (TTU)".contentEquals(result.getContents())) {
-                    Toast.makeText(this, "You earned 10 points", Toast.LENGTH_LONG).show();
-                    lol.addTen();
+                else if(numId >= 20 && numId <30)
+                {
+                    if(lol.isScanned[numId] == false)
+                    {
+                        Toast.makeText(this, "You earned 10 points!", Toast.LENGTH_LONG).show();
+                        lol.addTen();
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "You have already scanned this QR code!", Toast.LENGTH_LONG).show();
+                    }
                 }
-
-
+                else
+                {
+                    Toast.makeText(this, "Invalid QR code!", Toast.LENGTH_LONG).show();
+                }
                 Log.d("Results", result.getContents());
-
-                //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment

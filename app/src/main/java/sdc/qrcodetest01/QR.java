@@ -6,10 +6,15 @@ package sdc.qrcodetest01;
 public class QR {
 
     Score x = new Score();
+    boolean isScanned[] = new boolean[30];
     public QR()
     {
         int score = x.score;
         String scoreStr = Integer.toString(score);
+        for(boolean i : isScanned)
+        {
+            i = false;
+        }
     }
     public void addOne()
     {
