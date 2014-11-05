@@ -16,19 +16,19 @@ public class QR {
             i = false;
         }
     }
-    public void addOne()
+    public void addOne(int numId)
     {
-        //check
+        isScanned[numId] = true;
         x.scoreOne();
     }
-    public void addFive()
+    public void addFive(int numId)
     {
-        //check
+        isScanned[numId] = true;
         x.scoreFive();
     }
-    public void addTen()
+    public void addTen(int numId)
     {
-        //check
+        isScanned[numId] = true;
         x.scoreTen();
     }
     public int getScore()
