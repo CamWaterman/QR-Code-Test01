@@ -35,4 +35,32 @@ public class QR {
     {
         return x.getScore();
     }
+
+    public void toBooleanArrray(String booleans)
+    {
+        char[] dumb = new char[30];
+        dumb = booleans.toCharArray();
+        for(int i=0; i<booleans.length(); i++)
+        {
+            if(dumb[i]=='f')
+                isScanned[i] = false;
+            else
+                isScanned[i] = true;
+        }
+    }
+
+    public String saveData()
+    {
+        String data = "";
+
+        for(boolean n : isScanned)
+        {
+            if(n)
+                data.concat("t");
+            else
+                data.concat("f");
+        }
+
+        return data;
+    }
 }
