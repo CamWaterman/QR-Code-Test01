@@ -56,9 +56,9 @@ public class QR {
         for(boolean n : isScanned)
         {
             if(n)
-                data.concat("t");
+                data+="t";
             else
-                data.concat("f");
+                data+="f";
         }
 
         return data;

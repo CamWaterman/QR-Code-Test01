@@ -38,12 +38,11 @@ public class HomeScreen extends Activity {
             }
         });
         scorePref = this.getSharedPreferences("name", Context.MODE_PRIVATE);
+        scannedPref = this.getSharedPreferences("name1", Context.MODE_PRIVATE);
         lol.x.score = scorePref.getInt("score", 0);
-        prefEditor =  scorePref.edit();
-        prefEditor2 = scannedPref.edit();
         scoreView = (TextView) findViewById(R.id.scoreBody);
         scoreView.setText(String.valueOf(lol.x.score));
-        scannedData = scannedPref.getString("scanned", "");
+        scannedData = scannedPref.getString("scanned", "ffffffffffffffffffffffffffffff");
         lol.toBooleanArrray(scannedData);
     }
 
@@ -132,9 +131,12 @@ public class HomeScreen extends Activity {
             // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
+        prefEditor =  scorePref.edit();
+        prefEditor2 = scannedPref.edit();
         prefEditor.putInt("score", lol.getScore());
         prefEditor.commit();
-        prefEditor2.putString("scanned",lol.saveData());
+        Log.d("", lol.saveData());
+        prefEditor2.putString("scanned", lol.saveData());
         prefEditor2.commit();
         scoreView.setText(String.valueOf(lol.getScore()));
     }
